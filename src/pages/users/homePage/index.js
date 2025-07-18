@@ -2,10 +2,11 @@ import React, { memo } from 'react';
 
 const HomePage = () => {
   return (
-    <div>
-      <h1>Welcome to the User Home Page</h1>
-      <p>This is where users can find their dashboard and manage their profiles.</p>
-    </div>
+    <>   
+      <h1>header</h1>
+      <h1>body</h1>
+      <h1>footer</h1>
+    </>
   );
 }
 
