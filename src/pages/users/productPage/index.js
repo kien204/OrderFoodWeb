@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-const profilePage = () => {
+const productPage = () => {
   return (
     <>   
       <h1>Profile Header</h1>
@@ -8,4 +8,4 @@ const profilePage = () => {
   );
 }
 
-export default memo(profilePage);
+export default memo(productPage);
