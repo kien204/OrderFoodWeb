@@ -1,0 +1,64 @@
+@use "sass:map";
+@import "../../../../style/pages/theme.scss";
+
+.footer {
+    background: #f5f5f5;
+    padding: 50px 0;
+}
+
+a {
+    text-decoration: none;
+    color: #666;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: map.get($theme-color, "main");
+    }
+}
+
+p {
+    color: #666;
+}
+
+li {
+    list-style: none;
+}
+
+.footer__desc {
+    color: #666;
+    font-size: 15px;
+    margin-top: 10px;
+    padding-right: 10px;
+}
+
+.footer__bottom {
+    color: #666;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer__socials {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    margin-top: 5px;
+
+    div {
+        :hover {
+            background: map.get($theme-color, "main");
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        svg {
+            font-size: 20px;
+            color: #666;
+            padding: 10px;
+            transition: color 0.3s ease;
+            border: 1px solid #ededed;
+            border-radius: 50%;
+            background: #ffffff;
+            cursor: pointer;
+        }
+    }
+}

@@ -34,73 +34,81 @@ const Header = () => {
       <div className="header_top">
         <div className="container">
           <div className="row">
-            <div className="header_top_left">
-              <span className="header_top_left_text">🎉 Ưu đãi mỗi ngày – Miễn phí giao hàng đơn từ 200K!</span>
+            <div className="col-xl-6">
+              <span className="header__top-text">🎉 Ưu đãi mỗi ngày – Miễn phí giao hàng đơn từ 200K!</span>
             </div>
-            <div className="header_top_right">
-              <ul className='menu'>
-                <li className='notification_item'>
-                  <Link to=""><IoIosNotificationsOutline  /> <span> Thông báo</span></Link>
-                  {notifim?.length > 0 && (
-                    <div className="notification_dropdown">
-                      <span className="notification_text">Thông báo mới</span>
-                      <ul>
-                        {notifim.slice(0, 5).map((item, index) => (
-                          <li key={index} className={item.read ? 'read' : 'unread'}>
-                            <Link to={item.link}>{item.message}</Link>
-                          </li>
-                        ))}
-                      </ul>
-                      <span className="view_all">
-                        <Link to="">Xem tất cả</Link>
-                      </span>
-                    </div>
-                  )}
-                </li>
-                <li>
-                  <Link to=""><IoIosHelpCircleOutline /> <span> Hỗ trợ</span></Link>
-                </li>
-                <li>
-                  <Link to=""><CiUser /> <span> Đăng nhập</span></Link>
-                </li>
-              </ul>
+            <div className="col-xl-6">
+              <div className="header__top-right">
+                <ul className='menu'>
+                  <li className='notification_item'>
+                    <Link to=""><IoIosNotificationsOutline  /> <span> Thông báo</span></Link>
+                    {notifim?.length > 0 && (
+                      <div className="notification_dropdown">
+                        <span className="notification_text">Thông báo mới</span>
+                        <ul>
+                          {notifim.slice(0, 5).map((item, index) => (
+                            <li key={index} className={item.read ? 'read' : 'unread'}>
+                              <Link to={item.link}>{item.message}</Link>
+                            </li>
+                          ))}
+                        </ul>
+                        <span className="view_all">
+                          <Link to="">Xem tất cả</Link>
+                        </span>
+                      </div>
+                    )}
+                  </li>
+                  <li>
+                    <Link to=""><IoIosHelpCircleOutline /> <span> Hỗ trợ</span></Link>
+                  </li>
+                  <li>
+                    <Link to=""><CiUser /> <span> Đăng nhập</span></Link>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div> 
 
       <div className="container">  
-        <div className="row"> 
-          <div className="header_logo">
-            <Link to="/">
-              <img src={logo} alt="Logo" className='logo'/>
-            </Link>
-          </div>
-
-          <div className="header_menu">
-            <ul className='menu'>
-             {
-              menu?.map((item, index) => (
-                <li key={index} className={location.pathname === item.path ? 'active' : ''}>
-                  <Link to={item?.path}>{item.name}</Link>
-                </li>
-              ))
-             }
-            </ul>
-          </div>
-
-          <div className="header_search_cart">
-            <div className="header_search">
-              <form>
-                <input type="text" placeholder="Tìm kiếm ..." />
-                <IoIosSearch />
-              </form>
-            </div>
-            <div className="header_cart">
-              <Link to="">
-                <AiOutlineShoppingCart />
-                <span className="cart_count">0</span>
+        <div className="row header__main"> 
+          <div className="col-xl-3">
+            <div className="header__logo">
+              <Link to="/">
+                <img src={logo} alt="Logo" className='logo'/>
               </Link>
+            </div>
+          </div>
+
+          <div className="col-xl-6">
+            <div className="header__menu">
+              <ul className='menu'>
+              {
+                menu?.map((item, index) => (
+                  <li key={index} className={location.pathname === item.path ? 'active' : ''}>
+                    <Link to={item?.path}>{item.name}</Link>
+                  </li>
+                ))
+              }
+              </ul>
+            </div>
+          </div>
+
+          <div className="col-xl-3">
+            <div className="header__actions">
+              <div className="header__search">
+                <form>
+                  <input type="text" placeholder="Tìm kiếm ..." />
+                  <IoIosSearch />
+                </form>
+              </div>
+              <div className="header__cart">
+                <Link to="">
+                  <AiOutlineShoppingCart />
+                  <span className="header__cart-count">0</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
