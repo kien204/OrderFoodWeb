@@ -1,8 +1,4 @@
-@use "sass:math";
-@use "sass:map";
-@import "theme";
 @import "responsive";
-
 
 html,body {
     margin: 0;
@@ -15,7 +11,7 @@ html,body {
 }
 
 .container {
-    max-width: 1170px;
+    max-width: 1250px;
     width: 100%;
     padding-left: 15px;
     padding-right: 15px;
@@ -36,6 +32,16 @@ html,body {
 .col-xl-3 {
     flex: 0 0 25%;
     max-width: 25%;
+}
+
+.col-xl-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+
+.col-xl-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
 }
 
 @include Responsive($MEDIUM_DEVICE) {

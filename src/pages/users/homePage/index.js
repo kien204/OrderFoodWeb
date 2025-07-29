@@ -1,13 +1,23 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
+import Banner from '../../../compenent/banner';
+import ProductList  from '../../../compenent/productlist';    
+import '../homePage/style.scss'; // Assuming you have a style file for the HomePage component
 
 const HomePage = () => {
+
   return (
-    <>   
-      <h1>header</h1>
-      <h1>body</h1>
-      <h1>footer</h1>
+    <>
+      <div className='container'>
+        <div className='row'>
+          <div className='col-xl-12'>
+            <Banner /> 
+            <ProductList />
+          </div>
+        </div>
+      </div>
     </>
   );
+
 }
 
 export default memo(HomePage);

@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import './style.scss';
+import '../header/style.scss';
 import { IoIosSearch, IoIosNotificationsOutline , IoIosHelpCircleOutline } from "react-icons/io";
 import { CiUser } from "react-icons/ci";
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -10,7 +10,7 @@ import { ROUTER } from '../../../../utils/router';
 
 const Header = () => {
 
-  const [menu, setMenu] = useState([
+  const [menu] = useState([
     { name: 'Trang chủ', path:  ROUTER.USER.HOME },
     { name: 'Sản phẩm', path: ROUTER.USER.PRODUCT },
     { name: 'Công thức', path: ROUTER.USER.RECIPE },

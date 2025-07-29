@@ -11,7 +11,6 @@
     color: #333;
 }
 
-
 .header__top-right {
     display: flex;
     justify-content: flex-end;
@@ -195,6 +194,10 @@
                 width: 30px;
                 height: 30px;
                 transition: fill 0.3s;
+
+                &:hover {
+                    color: map.get($theme-color, "main");
+                }
             }
 
             .header__cart-count {

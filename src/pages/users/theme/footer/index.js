@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import './style.scss';
+import '../footer/style.scss';
 import logo from '../../../../assets/logo.png';
 import { Link } from 'react-router-dom';
 import { AiOutlineFacebook, AiOutlineInstagram, AiOutlineLinkedin,
