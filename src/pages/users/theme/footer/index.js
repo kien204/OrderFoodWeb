@@ -26,17 +26,17 @@ const Footer = () => {
               <h4 className="footer__title">Điều hướng</h4>
               <ul className="footer__list">
                 <li><Link to="/">Trang chủ</Link></li>
-                <li><Link to="/products">Sản phẩm</Link></li>
-                <li><Link to="/recipes">Công thức</Link></li>
-                <li><Link to="/blog">Bài viết</Link></li>
-                <li><Link to="/contact">Liên hệ</Link></li>
+                <li><Link to="/san-pham">Sản phẩm</Link></li>
+                <li><Link to="/cong-thuc">Công thức</Link></li>
+                <li><Link to="/bai-viet">Bài viết</Link></li>
+                <li><Link to="/lien-he">Liên hệ</Link></li>
               </ul>
             </div>
 
             <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
               <h4 className="footer__title">Hỗ trợ</h4>
               <ul className="footer__list">
-                <li><Link to="/help">Hướng dẫn đặt hàng</Link></li>
+                <li><Link to="/ho-tro">Hướng dẫn đặt hàng</Link></li>
                 <li><Link to="/policy">Chính sách giao hàng</Link></li>
                 <li><Link to="/returns">Đổi/trả hàng</Link></li>
                 <li><Link to="/terms">Điều khoản</Link></li>

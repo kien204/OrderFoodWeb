@@ -1,255 +1,107 @@
 // src/components/ProductCarousel.jsx
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Grid } from 'swiper/modules'; 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/grid';
 import '../productlist/style.scss';
-import anh from '../../assets/anh1.jpg';
-
-const products = [
-  {
-    id: 1,
-    name: 'Sườn cốt lết',
-    price: '58.500đ/500g',
-    oldPrice: '72.000đ',
-    discount: '-19%',
-    remain: 61,
-    image: '/images/sp1.jpg',
-  },
-  {
-    id: 2,
-    name: 'Cánh tỏi gà',
-    price: '29.000đ/300g',
-    oldPrice: '34.500đ',
-    discount: '-16%',
-    remain: 39,
-    image: '/images/sp2.jpg',
-  },
-  {
-    id: 3,
-    name: 'Cá điêu hồng',
-    price: '48.900đ/500g',
-    oldPrice: '57.000đ',
-    discount: '-14%',
-    remain: 14,
-    image: '/images/sp3.jpg',
-  },
-  {
-    id: 4,
-    name: 'Cải bẹ xanh',
-    price: '5.000đ/300g',
-    oldPrice: '11.000đ',
-    discount: '-55%',
-    remain: 25,
-    image: '/images/sp4.jpg',
-  },
-  {
-    id: 5,
-    name: 'Dưa leo',
-    price: '10.000đ/500g',
-    oldPrice: '12.500đ',
-    discount: '-20%',
-    remain: 40,
-    image: '/images/sp5.jpg',
-  },
-  {
-    id: 6,
-    name: 'Dưa lưới ruột cam',
-    price: '50.700đ/1.3kg',
-    oldPrice: '67.000đ',
-    discount: '-25%',
-    remain: 18,
-    image: '/images/sp6.jpg',
-  },
-  {
-    id: 7,
-    name: 'Cải ngồng',
-    price: '6.600đ/300g',
-    oldPrice: '11.000đ',
-    discount: '-40%',
-    remain: 30,
-    image: '/images/sp7.jpg',
-  },
-  {
-    id: 8,
-    name: 'Bầu sao 2 trái',
-    price: '21.000đ/1kg',
-    oldPrice: '25.000đ',
-    discount: '-16%',
-    remain: 20,
-    image: '/images/sp8.jpg',
-  },
-  {
-    id: 9,
-    name: 'Trứng gà 10 quả',
-    price: '30.000đ',
-    oldPrice: '27.000đ/hộp',
-    discount: 'Mới',
-    remain: 50,
-    image: '/images/sp9.jpg',
-  },
-  {
-    id: 10,
-    name: 'Chuối già Nam Mỹ',
-    price: '19.530đ/700g',
-    oldPrice: '23.240đ',
-    discount: '-16%',
-    remain: 22,
-    image: '/images/sp10.jpg',
-  },
-  // 10 sản phẩm nữa lặp lại cho đủ 20
-  {
-    id: 11,
-    name: 'Sườn cốt lết',
-    price: '58.500đ/500g',
-    oldPrice: '72.000đ',
-    discount: '-19%',
-    remain: 61,
-    image: '/images/sp1.jpg',
-  },
-  {
-    id: 12,
-    name: 'Cánh tỏi gà',
-    price: '29.000đ/300g',
-    oldPrice: '34.500đ',
-    discount: '-16%',
-    remain: 39,
-    image: '/images/sp2.jpg',
-  },
-  {
-    id: 13,
-    name: 'Cá điêu hồng',
-    price: '48.900đ/500g',
-    oldPrice: '57.000đ',
-    discount: '-14%',
-    remain: 14,
-    image: '/images/sp3.jpg',
-  },
-  {
-    id: 14,
-    name: 'Cải bẹ xanh',
-    price: '5.000đ/300g',
-    oldPrice: '11.000đ',
-    discount: '-55%',
-    remain: 25,
-    image: '/images/sp4.jpg',
-  },
-  {
-    id: 15,
-    name: 'Dưa leo',
-    price: '10.000đ/500g',
-    oldPrice: '12.500đ',
-    discount: '-20%',
-    remain: 40,
-    image: '/images/sp5.jpg',
-  },
-  {
-    id: 16,
-    name: 'Dưa lưới ruột cam',
-    price: '50.700đ/1.3kg',
-    oldPrice: '67.000đ',
-    discount: '-25%',
-    remain: 18,
-    image: '/images/sp6.jpg',
-  },
-  {
-    id: 17,
-    name: 'Cải ngồng',
-    price: '6.600đ/300g',
-    oldPrice: '11.000đ',
-    discount: '-40%',
-    remain: 30,
-    image: '/images/sp7.jpg',
-  },
-  {
-    id: 18,
-    name: 'Bầu sao 2 trái',
-    price: '21.000đ/1kg',
-    oldPrice: '25.000đ',
-    discount: '-16%',
-    remain: 20,
-    image: '/images/sp8.jpg',
-  },
-  {
-    id: 19,
-    name: 'Trứng gà 10 quả',
-    price: '30.000đ',
-    oldPrice: '27.000đ/hộp',
-    discount: 'Mới',
-    remain: 50,
-    image: '/images/sp9.jpg',
-  },
-  {
-    id: 20,
-    name: 'Chuối già Nam Mỹ',
-    price: '19.530đ/700g',
-    oldPrice: '23.240đ',
-    discount: '-16%',
-    remain: 22,
-    image: '/images/sp10.jpg',
-  },
-];
+import anh from '../../assets/anh2.jpg';
+import { Link } from 'react-router-dom';
 
 const ProductSlider = () => {
+
+  const [productList, setProductList] = useState([]); 
+
+  useEffect(() => {
+    fetch('/mock/products.json')
+      .then(response => response.json())
+      .then(data => {
+        setProductList(data);
+      })
+      .catch(error => console.error('Error fetching product data:', error));
+  }, []);  
+
   return (
-    <div className="product-slider">
-      <div className="product-header banner">
-        <h2>Sản phẩm khuyến mãi</h2>
-        <a href="/tat-ca-san-pham" className="see-all">Xem tất cả &gt;</a>
-      </div>
+  <div className="product-slider">
+    <div className="product-slider__header">
+      <h3>Sản phẩm khuyến mãi</h3>
+    </div>
 
       <Swiper
         watchSlidesProgress={true} 
-        slidesPerView={5}
+        slidesPerView={6}
         slidesPerGroup={6}
-        spaceBetween={20}
+        spaceBetween={5}
         grid={{ rows: 2, fill: 'row' }}
         navigation
         modules={[Grid, Navigation]}
-        className="mySwiper">
-
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 87</SwiperSlide>
-        <SwiperSlide>Slide 96</SwiperSlide>
-        <SwiperSlide>Slide 75</SwiperSlide>
-        <SwiperSlide>Slide 84</SwiperSlide>
-        <SwiperSlide>Slide 93</SwiperSlide>
-        <SwiperSlide>Slide 72</SwiperSlide>
-        <SwiperSlide>Slide 81</SwiperSlide>
-        <SwiperSlide>Slide 9a</SwiperSlide>
+        className="product-slider__swiper"
+        breakpoints={{
+          0: { // tương ứng $WIDE_MOBILE
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+            grid: { rows: 2 },
+          },
+          576: { // tương ứng $SMALL_DEVICES
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+            grid: { rows: 2 },
+          },
+          768: { // tương ứng $TABLET_DEVICE
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+            grid: { rows: 2 },
+          },
+          992: { // tương ứng $MEDIUM_DEVICE
+            slidesPerView: 5,
+            slidesPerGroup: 5,
+            grid: { rows: 2 },
+          },
+          1200: { // tương ứng $DESKTOP
+            slidesPerView: 6,
+            slidesPerGroup: 6,
+            grid: { rows: 2 },
+          },
+        }}
+          >
+          {productList?.map((products, index) => (
+            <SwiperSlide key={index}>
+                <div className="product-card">
+                  <Link to={`/san-pham/${products.slug}`} >
+                    <div className="product-card__image">
+                      <img src={anh} alt={products.name} />
+                    </div>
+                    <div className="product-card__info">
+                      <div className="product-card__name">{products.name}</div>
+                      <div className="product-card__price">
+                        {products.sale_price !== 0 ? (
+                          <>
+                            <h3 className="product-card__price-price">
+                              {products.sale_price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
+                            </h3>
+                            <span className="product-card__sale-price">
+                              {products.price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
+                            </span>
+                            <span className="product-card__sale-discount">
+                              -{Math.round(((products.price - products.sale_price) / products.price) * 100)}%
+                            </span>
+                          </>
+                        ) : (
+                          <h3 className="product-card__price-price">
+                            {products.price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
+                          </h3>
+                        )}
+                      </div>
+                    </div>
+                  </Link>
+                  <button className="product-card__add-to-cart">Thêm vào giỏ hàng</button>
+                </div>
+            </SwiperSlide>
+          ))}
       </Swiper>
 
-      {/* <Swiper
-        slidesPerView={5}
-        slidesPerGroup={5}
-        grid={{ rows: 2, fill: 'row' }}
-        navigation
-        modules={[Navigation, Grid]}
-        className="swiper-wrapper"
-      >
-        {products.map((p) => (
-          <SwiperSlide key={p.id}>
-            <div className="product-card">
-              <img src={p.image} alt={p.name} />
-              <h3>{p.name}</h3>
-              <div className="price-info">
-                <span className="new-price">{p.price}</span>
-                <span className="old-price">{p.oldPrice}</span>
-                <span className="discount">{p.discount}</span>
-              </div>
-              <div className="remain">Còn {p.remain} suất</div>
-              <button className="buy-btn" onClick={() => alert(`Mua ${p.name}`)}>MUA</button>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper> */}
+      <div className="product-slider__bottom"><Link to="/san-pham/do-uong" className="product-slider__see-all">Xem tất cả &gt;</Link></div>
     </div>
   );
 };

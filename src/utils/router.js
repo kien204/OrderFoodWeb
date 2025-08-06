@@ -1,10 +1,11 @@
 export const ROUTER = {
     USER: {
         HOME: '/',
-        PRODUCT: '/products',
-        RECIPE: '/recipes',
-        BLOG: '/blog',
-        CONTACT: '/contact',
+        PRODUCT: '/san-pham',
+        PRODUCT_CATEGORY: '/san-pham/:categorySlug',
+        RECIPE: '/cong-thuc',
+        BLOG: '/bai-viet',
+        CONTACT: '/lien-he',
     },
 
     ADMIN: {

@@ -1,0 +1,9 @@
+[
+  { "id": 1, "name": "Thịt gà", "slug": "thit-ga", "group_id": 1 },
+  { "id": 2, "name": "Thịt lợn", "slug": "thit-lon", "group_id": 1 },
+  { "id": 3, "name": "Hải sản", "slug": "hai-san", "group_id": 1 },
+  { "id": 4, "name": "Rau xanh", "slug": "rau-xanh", "group_id": 2 },
+  { "id": 5, "name": "Củ quả", "slug": "cu-qua", "group_id": 2 },
+  { "id": 6, "name": "Nước ngọt", "slug": "nuoc-ngot", "group_id": 3 },
+  { "id": 7, "name": "Sữa", "slug": "sua", "group_id": 3 }
+]

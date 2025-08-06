@@ -3,6 +3,7 @@ import HomePage from "./pages/users/homePage";
 import { Route, Routes } from "react-router-dom";
 import MasterLayout from "./pages/users/theme/masterLayout";
 import ProductPage from "./pages/users/productPage";
+import CategoryPage from "./pages/users/categoryPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import DashBoard from "./pages/admin/dashboard";
 
@@ -15,6 +16,10 @@ const renderUserRouter = () => {
         {
             path: ROUTER.USER.PRODUCT,
             component: <ProductPage />,
+        },
+        {
+            path: ROUTER.USER.PRODUCT_CATEGORY,
+            component: <CategoryPage />,
         },
         {
             path: ROUTER.USER.RECIPE,
