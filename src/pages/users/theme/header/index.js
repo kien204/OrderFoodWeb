@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useState, useEffect, Children } from 'react';
 import '../header/style.scss';
 import { IoIosSearch, IoIosNotificationsOutline , IoIosHelpCircleOutline } from "react-icons/io";
 import { CiUser } from "react-icons/ci";
@@ -9,6 +9,33 @@ import { ROUTER } from '../../../../utils/router';
 
 
 const Header = () => {
+
+  const location = useLocation(); 
+  const [categoryGroup, setCategoryGroup] = useState(null);
+  const [categorys, setCategory] = useState(null);
+
+  useEffect(() => {
+
+      async function loadData() {
+        fetch('/mock/category_groups.json')
+        .then(response => response.json())
+        .then(data => {
+          setCategoryGroup(data);
+        })
+        .catch(error => console.error('Error fetching product data:', error));
+
+        fetch('/mock/categorys.json')
+        .then(response => response.json())
+        .then(data => {
+          setCategory(data);
+        })
+        .catch(error => console.error('Error fetching product data:', error));
+
+        console.log(categorys, categoryGroup);
+      }
+
+      loadData();
+    }, []);
 
   const [menu] = useState([
     { name: 'Trang chủ', path:  ROUTER.USER.HOME },
@@ -27,18 +54,16 @@ const Header = () => {
     { message: "Đơn hàng #5678 đang được giao", read: true },
   ]);
 
-  const location = useLocation(); 
-
   return (
     <> 
-      <div className="header_top">
+      <div className="header-top">
         <div className="container">
           <div className="row">
             <div className="col-xl-6">
-              <span className="header__top-text">🎉 Ưu đãi mỗi ngày – Miễn phí giao hàng đơn từ 200K!</span>
+              <span className="header-top__text">🎉 Ưu đãi mỗi ngày – Miễn phí giao hàng đơn từ 200K!</span>
             </div>
             <div className="col-xl-6">
-              <div className="header__top-right">
+              <div className="header-top__right">
                 <ul className='menu'>
                   <li className='notification_item'>
                     <Link to=""><IoIosNotificationsOutline  /> <span> Thông báo</span></Link>
@@ -70,44 +95,46 @@ const Header = () => {
           </div>
         </div>
       </div> 
-
-      <div className="container">  
-        <div className="row header__main"> 
-          <div className="col-xl-3">
-            <div className="header__logo">
-              <Link to="/">
-                <img src={logo} alt="Logo" className='logo'/>
-              </Link>
-            </div>
-          </div>
-
-          <div className="col-xl-6">
-            <div className="header__menu">
-              <ul className='menu'>
-              {
-                menu?.map((item, index) => (
-                  <li key={index} className={location.pathname === item.path ? 'active' : ''}>
-                    <Link to={item?.path}>{item.name}</Link>
-                  </li>
-                ))
-              }
-              </ul>
-            </div>
-          </div>
-
-          <div className="col-xl-3">
-            <div className="header__actions">
-              <div className="header__search">
-                <form>
-                  <input type="text" placeholder="Tìm kiếm ..." />
-                  <IoIosSearch />
-                </form>
-              </div>
-              <div className="header__cart">
-                <Link to="">
-                  <AiOutlineShoppingCart />
-                  <span className="header__cart-count">0</span>
+                    
+      <div className='header-main'>
+        <div className="container">  
+          <div className="row"> 
+            <div className="col-xl-2">
+              <div className="header-main__logo">
+                <Link to="/">
+                  <img src={logo} alt="Logo" className='logo'/>
                 </Link>
+              </div>
+            </div>
+
+            <div className="col-xl-7">
+              <div className="header-main__menu">
+                <ul className='menu'>
+                {
+                  menu?.map((item, index) => (
+                    <li key={index} className={location.pathname === item.path ? 'active' : ''}>
+                      <Link to={item?.path}>{item.name}</Link>
+                    </li>
+                  ))
+                }
+                </ul>
+              </div>
+            </div>
+
+            <div className="col-xl-3">
+              <div className="header-main__actions">
+                <div className="header-main__search">
+                  <form>
+                    <input type="text" placeholder="Tìm kiếm ..." />
+                    <IoIosSearch />
+                  </form>
+                </div>
+                <div className="header-main__cart">
+                  <Link to="">
+                    <AiOutlineShoppingCart />
+                    <span className="header-main__cart-count">0</span>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

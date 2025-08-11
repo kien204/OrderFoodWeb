@@ -8,10 +8,11 @@ const HomePage = () => {
   return (
     <>
       <div className='container'>
-        <div className='row'>
+        <div className='row-main'>
           <div className='col-xl-12'>
             <Banner /> 
-            <ProductList />
+            <ProductList categoryID={3}/>
+            <ProductList categoryID={1}/>
           </div>
         </div>
       </div>

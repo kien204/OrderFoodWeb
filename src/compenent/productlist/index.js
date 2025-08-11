@@ -9,18 +9,23 @@ import '../productlist/style.scss';
 import anh from '../../assets/anh2.jpg';
 import { Link } from 'react-router-dom';
 
-const ProductSlider = () => {
+const ProductSlider = ({categoryID}) => {
 
-  const [productList, setProductList] = useState([]); 
+  const [productList, setProductList] = useState([]);
 
   useEffect(() => {
     fetch('/mock/products.json')
       .then(response => response.json())
       .then(data => {
-        setProductList(data);
+
+         const filteredProducts = categoryID 
+          ? data.filter(p => p.category_id === categoryID)
+          : data;
+
+        setProductList(filteredProducts);
       })
       .catch(error => console.error('Error fetching product data:', error));
-  }, []);  
+  }, [categoryID]);  
 
   return (
   <div className="product-slider">
